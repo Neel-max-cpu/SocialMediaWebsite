@@ -1,0 +1,1045 @@
+/* we can add font like this too instead of insearting in our index file */
+
+
+/* importing our fonts -- for normal text--- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Shantell+Sans:wght@300;400&family=Tilt+Warp&display=swap');
+/* font family --
+font-family: 'Lato', sans-serif;
+font-family: 'Shantell Sans', cursive;
+font-family: 'Tilt Warp', cursive; */
+
+
+/* for mostly headings--"bold"----------NOT USED----- */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Lato:wght@300&family=Shantell+Sans:wght@300;400&family=Tilt+Warp&display=swap');
+/* font family ---
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Shantell Sans', cursive;
+font-family: 'Tilt Warp', cursive;
+ */
+
+/* fonts POPPINS for heading the different places */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+/* font family
+
+font-family: 'Poppins', sans-serif;
+
+*/
+
+
+:root{
+    /* variables as global */
+    /* to make variable just make two hyphen "--" along with the name and pass them where ever you want */
+
+    --primary-color-hue: 252;
+    --dark-color-lightness: 17%;
+    --light-color-lightness: 95%;
+    --white-color-lightness: 100%;
+
+    /* for explore box-shadow */
+    --one:0;
+    --two:0;
+    --two:0;
+    --three:0;
+    /* --four:0.75; */
+    --exlore-color-boxShadow: rgba(var(--one),var(--two),var(--three),0.75);
+    
+
+    --color-white: hsl(252,30%, var(--white-color-lightness));
+    --color-light: hsl(252, 30%, var(--light-color-lightness));
+    --color-gray: hsl(252, 15%, 65%);
+    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
+    --color-secondary: hsl(252, 100%, 90%);
+    --color-success: hsl(120, 95%, 65%);
+    --color-danger: hsl(0, 95%, 65%);
+    --color-dark: hsl(252, 30%, var(--dark-color-lightness));
+    --color-black: hsl(252, 30%, 10%);
+
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-paddding: 1rem;
+
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: -18rem;
+}
+
+
+
+
+/* 
+:before selector inserts something before the content of each selected element(s). 
+:after selector inserts something after the content of each selected element(s).
+*/
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    
+    /* no underlines for our links */
+    text-decoration: none;
+    border: none;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-family: 'Shantell Sans', cursive;
+    font-family: 'Tilt Warp', cursive;
+
+    /* variable selected from root */
+    color: var(--color-dark) ;
+    background-color: var(--color-light) ;
+   
+    /* overflow in the horizontal direction */
+    overflow-x: hidden;
+}
+
+
+
+/* ----------------------GLOBAL GENERAL STYLES THAT WILL APPLY TO EVERYTHING---------------- */
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.profile-photo{
+    width: 2.7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+.btn{
+    display: inline-block;
+    padding: var(--btn-padding);
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+.btn-primary{
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.text-bold{
+    font-weight: 500;
+}
+
+.text-muted{
+    color: var(--color-gray);
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+/* ----------------------------- NAVBAR -------------------------------------- */
+
+nav{
+    width: 100%;
+    background-color: var(--color-white);
+   
+    /* 0.7 top and bottom and 0 left and right */
+    padding: 0.7rem 0;
+    position: fixed;
+    top: 0;
+   
+    /* defines the order of the overlapping HTML elements 10(large) value to make it top of everything */
+    z-index: 10;
+}
+
+
+nav .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar{
+    background-color: var(--color-light);
+    border-radius: var(--border-radius);
+    padding: var(--search-padding);
+}
+
+.search-bar input[type="search"]{
+    background-color: transparent;
+    
+    /* 30% of the width of the page */
+    width: 30vw;
+    margin-left: 0.9rem;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+
+nav .search-bar input[type="search"]::placeholder{
+    color: var(--color-gray);
+}
+
+nav .create{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+/* =================== MAIN SECTION STYLING(from html) ======================= */
+
+main{
+    position: relative;
+    top: 5.4rem;
+}
+
+main .container{
+    display: grid;
+
+    /* left section would have 18vh(100vh means 100% of the height), middle-auto and right-20vw(100vw means 100% of the width */
+    grid-template-columns: 18vw auto 20vw;
+    column-gap: 2rem;
+    position: relative;
+}
+
+/* ==================== LEFT PART =========================== */
+main .container .left{
+    height:  max-content;
+    position: sticky;
+    top: var(--sticky-top-left);
+    
+    /* font change -- POPPINS */
+    font-family: 'Poppins', sans-serif;
+
+}
+
+main .container .left .profile{   
+    padding: var(--card-paddding);
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    width: 100%;
+}
+
+/* ===================== SIDEBAR ========================== */
+
+.left .sidebar{
+    margin-top: 1rem;
+    background: var(--color-white);
+    /* background: red; */
+    border-radius: var(--card-border-radius);
+}
+
+.left .sidebar .menu-item{
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    cursor: pointer;
+    transition: all 100ms ease;
+    position: relative;
+}
+
+.left .sidebar .menu-item:hover{
+    background: var(--color-light);
+}
+
+/* one with the i tag like notification, explore icons... */
+.left .sidebar i{
+    font-size: 1.4rem;
+    color: var(--color-gray);
+    margin-left: 2rem;
+    position: relative;
+}
+
+
+.left .sidebar i .notification-count{
+    background: var(--color-danger);
+    color: white;
+    font-size: 0.6rem;
+    width: fit-content;
+    border-radius: 0.8rem;
+    padding: 0.1rem 0.3rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.3rem;
+}
+
+.left .sidebar h3{
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    color: black;
+}
+
+.left .sidebar .active{
+    background: var(--color-light);
+    /* background: red; */
+}
+
+/* change the color of the word and icon */
+.left .sidebar .active i, .left .sidebar .active h3{
+    color: var(--color-primary);   
+}
+
+.left .sidebar .active::before{
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 100%;
+    position: absolute;  
+    background-color: var(--color-primary);
+}
+
+.left .sidebar .menu-item:first-child.active{
+    /* basically making it round for the 1st and last one round top for the 1st one , round bottom for the last one */
+    border-top-left-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.left .sidebar .menu-item:last-child.active{
+    border-bottom-left-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.left .btn{
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+
+/* ========================== NOTIFICATION POPUP ====================== */
+
+.left .notification-popup{
+    position: absolute;
+    top: 0;
+    left: 110%;
+    width: 30rem;
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-paddding);
+    box-shadow: 0 0 2rem hsl(var(--color-primary), 75% , 60%, 25%);
+    z-index: 8;
+
+    /* we are goona use with in javascript to display it */
+    display: none;
+}
+
+.left .notification-popup::before{
+    content: "";
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    
+    /* arrow that is present */
+    background-color: var(--color-white);
+    /* background-color: red; */
+    position: absolute;
+    left: -0.6rem;
+    transform: rotate(45deg);
+}
+
+/* every notification in the popup */
+.left .notification-popup > div{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.left .notification-popup small{
+    display: block;
+}
+
+
+
+/* ======================================= MIDDLE =================================== */
+
+    /* =============================== EXPLORE PART =========================== */
+    
+    .explore{
+        /* display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-row-gap: 30px;
+        grid-column-gap: 30px;   */
+        display: grid;
+        position: absolute;
+        /* grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); */
+        /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+        grid-template-columns: 6fr 6fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        justify-items: stretch;
+        /* align-items: stretch; */
+    }
+
+    .explore .ex-img:hover{
+        cursor: pointer;
+        /* box-shadow: 0px 0px 33px 18px rgba(0,0,0,0.75); */
+        box-shadow: 0px 0px 33px 18px var(--exlore-color-boxShadow);
+        
+        transition: all 300ms ease;
+        transform: scale(1.10);
+        position: relative;
+        z-index: 100;
+    }
+    .ex-img {
+        /* border: 4px solid rgb(65, 228, 32); */
+        /* cursor: pointer; */
+        width: 40;
+        height: 40;
+        transform-origin: 0 0;
+        transition: transform .25s, visibility .25s ease-in;
+        /* display: block; */
+    }
+    
+    /* =============================== EXPLORE PART =========================== */
+    
+    /* =============================== BOOK MARK ===========================
+    .bookmark{
+        display: grid;
+        grid-template-columns: 6fr 6fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        justify-items: stretch;
+    }
+    
+    .bo-img{
+        border: 5px solid rgb(187, 182, 182);
+    } */
+    
+    /* =============================== BOOK MARK ENDS HERE =========================== */
+
+.middle .stories{
+    display: flex;
+    justify-content: space-between;
+    height: 12rem;
+    gap: 0.5rem;
+    /* background: red ; */
+}
+
+.middle .stories .story{
+    padding: var(--card-paddding);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 0.75rem;
+    width: 100%;
+    /* background: red; */
+    position: relative;
+    overflow: hidden;
+}
+
+.middle .stories .story::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5rem;
+    /* background: linear-gradient(white,black); */
+    background: linear-gradient(transparent, rba(0,0,0,0.75));
+    
+    position: absolute;
+    bottom: 0;
+}
+
+.middle .stories .story .name{
+    z-index: 2;
+}
+
+.middle .stories .story:nth-child(1){
+    cursor: pointer;
+    background: url('./img/story-1.jpg_large') no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(2){
+    cursor: pointer;
+    background: url('./img/story-2.jfif') no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(3){
+    cursor: pointer;
+    background: url('./img/story-3.jfif') no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(4){
+    cursor: pointer;
+    background: url('./img/story-4.jpg') no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(5){
+    cursor: pointer;
+    background: url('./img/story-5.jpg') no-repeat center center/cover;
+}
+
+.middle .stories .story:nth-child(6){
+    cursor: pointer;
+    background: url('./img/story-6.jpg') no-repeat center center/cover;
+}
+
+.middle .story .profile-photo{
+    width: 2rem;
+    height: 2rem;
+    align-self: flex-start;
+    border: 3px solid var(--color-primary);
+}
+
+/* ===================== CREATE POST SECTION ==================== */
+
+.middle .create-post{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    background: var(--color-white);
+    padding: 0.4rem var(--card-paddding);
+    border-radius: var(--border-radius);
+}
+
+.middle .create-post input[type="text"]{
+    justify-self: start;
+    width: 100%;
+    padding-left: 1rem;
+    background: transparent;
+    color: var(--color-dark);
+    margin-right: 1rem;
+}
+
+
+
+/* ======================== FEEDS =========================== */
+
+.middle .feeds .feed{
+    /* changing the fonts */
+    font-family: 'Poppins', sans-serif;
+    
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-paddding);
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+.middle .feed .head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.middle .feed .user{
+    display: flex;
+    gap: 1rem;
+}
+
+.middle .feed .photo{
+    border-radius: var(--card-border-radius);
+    overflow: hidden;
+    margin: 0.7rem 0;
+}
+
+.middle .feed .action-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    margin: 0.6rem;
+}
+
+.middle .liked-by{
+    /* changing the fonts
+    font-family: 'Poppins', sans-serif; */
+    
+    display: flex;
+}
+
+.middle .liked-by span{
+    width: 1.4rem;
+    height: 1.4rem;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-white);
+    margin-left: -0.6rem;
+}
+
+.middle .liked-by span:first-child{
+    margin: 0;
+}
+
+.middle .liked-by p {
+    margin-left: 0.5rem;
+}
+
+.middle .caption{
+    /* changing the fonts */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* ============================== RIGHT ============================== */
+
+main .container .right{
+    /* changing the fonts */
+    font-family: 'Poppins', sans-serif;
+
+    height: max-content;
+    position: sticky;
+    top: var(--sticky-top-right);
+    bottom: 0;
+    /* z-index: 98; */
+}
+
+.right .messages{
+    background: var(--color-white);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-paddding);
+}
+
+.right .messages .heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.right .messages i{
+    /* search icon */
+    font-size: 1.4rem;
+} 
+
+
+/* same styling as the nav search bar  */
+.right .messages .search-bar{
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.right .messages .category{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.right .messages .category h6{
+    width: 100%;
+    text-align: center;
+    border-bottom: 4px solid var(--color-light);
+    padding-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* to see in which tab are we in , like primary , req , general */
+.right .messages .category .active{
+    border-color: var(--color-dark);
+    cursor: pointer;
+}
+
+
+.right .messages .general{
+    cursor: pointer;
+}
+
+
+.right .messages .message-requests{
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+
+
+
+.right .messages .message{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.right .message .profile-photo{
+    position: relative;
+    overflow: visible;
+}
+
+.right .profile-photo img{
+    border-radius: 50%;
+}
+
+
+.right .messages .message:last-child{
+    margin: 0;
+}
+
+
+.right .messages .message p{
+    font-size: 0.8rem;
+}
+
+.right .messages .message .text-bold{
+    /* globally text bold is there but i changed it here, made the weight a bit more */
+    font-weight: 580;
+    /* color: blue; */
+    color: var(--color-primary); 
+}
+
+
+
+
+.right .messages .message .message-body .new{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+.right .messages .message .circle{
+    /* display: flex; */
+    background: var(--color-primary);
+    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    right: 10;
+    position: absolute ; 
+    right: 15%;
+    /* top: 39.5%; */
+}
+
+
+
+
+.right .messages .message .profile-photo .active{
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    border: 3px solid var(--color-white); 
+    background: var(--color-success);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* ======================== FRIEND REQUEST ===================== */
+.right .friend-requests{
+    margin-top: 1rem;
+}
+
+
+.right .friend-requests h4{
+    color: var(--color-gray);
+    margin: 1rem 0;
+}
+
+
+.right .request{
+    background: var(--color-white);
+    padding: var(--card-paddding);
+    border-radius: var(--card-border-radius);
+    margin-bottom: 0.7rem;
+}
+
+
+.right .request .info{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.right .request .action{
+    display: flex;
+    gap: 1rem;
+}
+
+
+/* =================== THEME CUSTOMIZATION ========================== */
+
+.customize-theme{
+    /* changing the fonts-- */
+    font-family: 'Poppins', sans-serif;
+    
+    background:hsla(189, 75%, 60%, 0.452);;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    font-size: 0.9rem;
+
+    /* we will use js to display it */
+    display: none;
+}
+
+.customize-theme .card{
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--card-border-radius);
+    width: 50%;
+    box-shadow: 0 0 1rem var(--color-primary);
+}
+
+/* ===================================== FONT SIZE ============================= */
+
+.customize-theme .font-size{
+    margin-top: 5rem;
+}
+
+.customize-theme .font-size > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--color-light);
+    padding: var(--search-padding);
+    border-radius: var(--card-border-radius);
+}
+
+.customize-theme .choose-size{
+    background: var(--color-secondary);
+    height: 0.3rem;
+    width: 100%;
+    margin: 0.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customize-theme .choose-size span{
+    width: 1rem;
+    height: 1rem;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.customize-theme .choose-size span.active{
+    background-color: var(--color-primary);
+}
+
+
+/* ===================================== END FONT SIZE ============================= */
+
+
+/* ===================================== COLORS ============================= */
+
+.customize-theme .color{
+    margin-top: 2rem;
+}
+
+
+.customize-theme .choose-color{
+    /* background: var(--color-light); */
+    background: hsla(258, 44%, 87%, 0.747);
+    padding: var(--search-padding);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.customize-theme .choose-color span{
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    /* background: red; */
+}
+
+
+.customize-theme .choose-color span:nth-child(1){
+    background-color: hsl(252, 75%, 60%);
+    cursor: pointer;
+}
+
+
+.customize-theme .choose-color span:nth-child(2){
+    background-color: hsl(52, 75%, 60%);
+    cursor: pointer;
+}
+
+
+.customize-theme .choose-color span:nth-child(3){
+    background-color: hsl(322, 31%, 32%);
+    cursor: pointer;
+}
+
+
+.customize-theme .choose-color span:nth-child(4){
+    background-color: hsl(152, 75%, 60%);
+    cursor: pointer;
+}
+
+
+.customize-theme .choose-color span:nth-child(5){
+    background-color: hsl(2, 85%, 37%);
+    cursor: pointer;
+}
+
+
+.customize-theme .choose-color span.active{
+    border: 5px solid white;
+}
+
+
+.customize-theme .choose-bg{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.customize-theme .choose-bg > div{
+    padding: var(--card-paddding);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+
+.customize-theme .choose-bg > div.active{
+    border: 2px solid var(--color-primary);
+}
+
+
+.customize-theme .choose-bg .bg-1{
+    background: white;
+    color: black;
+}
+
+.customize-theme .choose-bg .bg-2{
+    background: hsl(254, 42%, 20%);
+    color: white;
+}
+
+.customize-theme .choose-bg .bg-3{
+    background: hsl(252, 29%, 7%);
+    color: white;
+}
+
+
+.customize-theme .choose-bg > div span{
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--color-gray);
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+
+
+
+/* ============================================================================
+MEDIA QUERIES FOR DYNAMIC RESPONSE --- FOR LAPTOP(SMALL) AND TABLETS(BIG)
+===============================================================================
+*/
+
+
+@media screen and (max-width: 1200px) {
+    .container{
+        width: 96%;
+    }
+
+    main .container{
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+
+    .left{
+        width: 5rem;
+        z-index: 5;
+    }
+
+    main .container .left .profile{
+        display: none;
+    }
+
+    .sidebar h3{
+        display: none;
+    }
+
+    .left .btn{
+        display: none;
+    }
+
+    .customize-theme .card{
+        width: 80vw;
+    }
+}
+
+
+
+
+/* ============================================================================
+MEDIA QUERIES FOR DYNAMIC RESPONSE --- FOR TABLETS(SMALL) AND PHONES
+===============================================================================
+*/
+
+
+@media screen and (max-width: 992px) {
+    nav .search-bar{
+        display: none;
+    }
+
+    main .container{
+        grid-template-columns: 0 auto 5rem;
+        gap: 0;
+    }
+
+    main .container .left{
+        /* there are 4 sides, left, middle, right and space at the side_which is counted as 4 
+        so we are keep the notification pop up at the 3rd place i.e at the rigth pos and moving the 
+        middle at the 1st and right at the 2nd  */
+        grid-column: 3/4;
+        
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+    /* ---------------------- NOTIFICATION POPUP --------------------------- */
+    .left .notfications-popup{
+        display: absolute;
+        top: 1.3rem;
+        left: calc(20rem - 0.6rem);
+        display: block;
+    }
+
+
+    main .container .left .sidebar > div h3{
+        display: none;
+    }
+
+    main .container .middle{
+        grid-column: 1/3;
+    }
+
+    main .container .right{
+        /* since we have msg in the side bar tab --- */
+        display: none;
+    }
+
+    .customize-theme .card{
+        width: 92vw;
+    }
+}
